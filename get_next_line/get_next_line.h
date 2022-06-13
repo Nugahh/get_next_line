@@ -6,12 +6,16 @@
 /*   By: fwong <fwong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 01:44:57 by fwong             #+#    #+#             */
-/*   Updated: 2022/06/12 21:13:23 by fwong            ###   ########.fr       */
+/*   Updated: 2022/06/13 03:42:45 by fwong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# ()ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
 
 # include <stdlib.h>
 
