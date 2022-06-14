@@ -6,25 +6,33 @@
 /*   By: fwong <fwong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 01:44:59 by fwong             #+#    #+#             */
-/*   Updated: 2022/06/13 03:42:36 by fwong            ###   ########.fr       */
+/*   Updated: 2022/06/14 19:33:25 by fwong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_free(char *str)
+size_t	ft_strlen(const char *s)
 {
-	free(str);
-	return (NULL);
+	size_t	i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i])
+			i++;
+		return (i);
+	}
+	return (0);
 }
 
-int		ft_is_newline(char *str)
+int	ft_is_newline(char *str)
 {
 	int	i;
 
 	i = 0;
 	if (!str)
-		return (NULL);
+		return (0);
 	while (str[i])
 	{
 		if (str[i] == '\n')
@@ -34,7 +42,7 @@ int		ft_is_newline(char *str)
 	return (0);
 }
 
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -47,8 +55,6 @@ char	*ft_strjoin(char *s1, char *s2);
 			return (NULL);
 		s1[0] = '\0';
 	}
-	if (!s1 || !s2)
-		return (NULL);
 	dest = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!dest)
 		return (NULL);
@@ -60,9 +66,7 @@ char	*ft_strjoin(char *s1, char *s2);
 	}
 	j = 0;
 	while (s2[j])
-	{
 		dest[i++] = s2[j++];
-	}
 	dest[i] = '\0';
 	return (free(s1), dest);
 }
@@ -92,7 +96,7 @@ char	*ft_get_line(char *str)
 		i++;
 	}
 	dest[i] = '\0';
-	return (dest); 
+	return (dest);
 }
 
 char	*ft_get_endline(char *str)
@@ -106,12 +110,12 @@ char	*ft_get_endline(char *str)
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
-	dest = malloc(sizeof(char) * ft_strlen(str) - i + 1)
+	dest = malloc(sizeof(char) * ft_strlen(str) - i + 1);
 	if (!dest)
-		return (free(dest), NULL);
+		return (NULL);
 	j = 0;
 	while (str[i])
-		dest[j++] = str[i++];
-	dest[i] = '\0';
-	return (free(str), dest);
+		dest[j++] = str[++i];
+	dest[j] = '\0';
+	return (dest);
 }
