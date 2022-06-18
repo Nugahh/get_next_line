@@ -6,7 +6,7 @@
 /*   By: fwong <fwong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 01:44:59 by fwong             #+#    #+#             */
-/*   Updated: 2022/06/14 19:33:25 by fwong            ###   ########.fr       */
+/*   Updated: 2022/06/18 20:35:55 by fwong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ char	*ft_strjoin(char *s1, char *s2)
 			return (NULL);
 		s1[0] = '\0';
 	}
+	if (!s1 || !s2)
+		return (NULL);
 	dest = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!dest)
 		return (NULL);
@@ -77,7 +79,7 @@ char	*ft_get_line(char *str)
 	char	*dest;
 
 	i = 0;
-	if (!str)
+	if (!str || !str[i])
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
@@ -117,5 +119,5 @@ char	*ft_get_endline(char *str)
 	while (str[i])
 		dest[j++] = str[++i];
 	dest[j] = '\0';
-	return (dest);
+	return (free(str), dest);
 }

@@ -6,7 +6,7 @@
 /*   By: fwong <fwong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 01:44:57 by fwong             #+#    #+#             */
-/*   Updated: 2022/06/14 19:21:26 by fwong            ###   ########.fr       */
+/*   Updated: 2022/06/18 19:52:34 by fwong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 2
 # endif
 
 # include <stdlib.h>
@@ -33,4 +33,3 @@ char	*ft_get_endline(char *str);
 char	*get_next_line(int fd);
 
 #endif
-
